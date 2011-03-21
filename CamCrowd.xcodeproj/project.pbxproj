@@ -1,0 +1,458 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		636E7CF21337E0CD00F18A5F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636E7CF11337E0CD00F18A5F /* UIKit.framework */; };
+		636E7CF41337E0CD00F18A5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636E7CF31337E0CD00F18A5F /* Foundation.framework */; };
+		636E7CF61337E0CD00F18A5F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636E7CF51337E0CD00F18A5F /* CoreGraphics.framework */; };
+		636E7CFC1337E0CD00F18A5F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 636E7CFA1337E0CD00F18A5F /* InfoPlist.strings */; };
+		636E7CFF1337E0CD00F18A5F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 636E7CFE1337E0CD00F18A5F /* main.m */; };
+		636E7D021337E0CD00F18A5F /* CamCrowdAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 636E7D011337E0CD00F18A5F /* CamCrowdAppDelegate.m */; };
+		636E7D051337E0CD00F18A5F /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636E7D031337E0CD00F18A5F /* MainWindow.xib */; };
+		636E7D081337E0CD00F18A5F /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636E7D071337E0CD00F18A5F /* RootViewController.m */; };
+		636E7D0B1337E0CD00F18A5F /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636E7D091337E0CD00F18A5F /* RootViewController.xib */; };
+		636E7D121337E0CE00F18A5F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636E7CF11337E0CD00F18A5F /* UIKit.framework */; };
+		636E7D131337E0CE00F18A5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636E7CF31337E0CD00F18A5F /* Foundation.framework */; };
+		636E7D141337E0CE00F18A5F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636E7CF51337E0CD00F18A5F /* CoreGraphics.framework */; };
+		636E7D1C1337E0CE00F18A5F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 636E7D1A1337E0CE00F18A5F /* InfoPlist.strings */; };
+		636E7D1F1337E0CE00F18A5F /* CamCrowdTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 636E7D1E1337E0CE00F18A5F /* CamCrowdTests.h */; };
+		636E7D211337E0CE00F18A5F /* CamCrowdTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 636E7D201337E0CE00F18A5F /* CamCrowdTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		636E7D151337E0CE00F18A5F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 636E7CE41337E0CD00F18A5F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 636E7CEC1337E0CD00F18A5F;
+			remoteInfo = CamCrowd;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		636E7CED1337E0CD00F18A5F /* CamCrowd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CamCrowd.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		636E7CF11337E0CD00F18A5F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		636E7CF31337E0CD00F18A5F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		636E7CF51337E0CD00F18A5F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		636E7CF91337E0CD00F18A5F /* CamCrowd-Info.plist */ = {isa = PBXFileReference; path = "CamCrowd-Info.plist"; sourceTree = "<group>"; };
+		636E7CFB1337E0CD00F18A5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		636E7CFD1337E0CD00F18A5F /* CamCrowd-Prefix.pch */ = {isa = PBXFileReference; path = "CamCrowd-Prefix.pch"; sourceTree = "<group>"; };
+		636E7CFE1337E0CD00F18A5F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		636E7D001337E0CD00F18A5F /* CamCrowdAppDelegate.h */ = {isa = PBXFileReference; path = CamCrowdAppDelegate.h; sourceTree = "<group>"; };
+		636E7D011337E0CD00F18A5F /* CamCrowdAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CamCrowdAppDelegate.m; sourceTree = "<group>"; };
+		636E7D041337E0CD00F18A5F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		636E7D061337E0CD00F18A5F /* RootViewController.h */ = {isa = PBXFileReference; path = RootViewController.h; sourceTree = "<group>"; };
+		636E7D071337E0CD00F18A5F /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		636E7D0A1337E0CD00F18A5F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
+		636E7D111337E0CE00F18A5F /* CamCrowdTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CamCrowdTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		636E7D191337E0CE00F18A5F /* CamCrowdTests-Info.plist */ = {isa = PBXFileReference; path = "CamCrowdTests-Info.plist"; sourceTree = "<group>"; };
+		636E7D1B1337E0CE00F18A5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		636E7D1D1337E0CE00F18A5F /* CamCrowdTests-Prefix.pch */ = {isa = PBXFileReference; path = "CamCrowdTests-Prefix.pch"; sourceTree = "<group>"; };
+		636E7D1E1337E0CE00F18A5F /* CamCrowdTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CamCrowdTests.h; sourceTree = "<group>"; };
+		636E7D201337E0CE00F18A5F /* CamCrowdTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CamCrowdTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		636E7CEA1337E0CD00F18A5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				636E7CF21337E0CD00F18A5F /* UIKit.framework in Frameworks */,
+				636E7CF41337E0CD00F18A5F /* Foundation.framework in Frameworks */,
+				636E7CF61337E0CD00F18A5F /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		636E7D0D1337E0CE00F18A5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				636E7D121337E0CE00F18A5F /* UIKit.framework in Frameworks */,
+				636E7D131337E0CE00F18A5F /* Foundation.framework in Frameworks */,
+				636E7D141337E0CE00F18A5F /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		636E7CE21337E0CD00F18A5F = {
+			isa = PBXGroup;
+			children = (
+				636E7CF71337E0CD00F18A5F /* CamCrowd */,
+				636E7D171337E0CE00F18A5F /* CamCrowdTests */,
+				636E7CF01337E0CD00F18A5F /* Frameworks */,
+				636E7CEE1337E0CD00F18A5F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		636E7CEE1337E0CD00F18A5F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				636E7CED1337E0CD00F18A5F /* CamCrowd.app */,
+				636E7D111337E0CE00F18A5F /* CamCrowdTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		636E7CF01337E0CD00F18A5F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				636E7CF11337E0CD00F18A5F /* UIKit.framework */,
+				636E7CF31337E0CD00F18A5F /* Foundation.framework */,
+				636E7CF51337E0CD00F18A5F /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		636E7CF71337E0CD00F18A5F /* CamCrowd */ = {
+			isa = PBXGroup;
+			children = (
+				636E7D001337E0CD00F18A5F /* CamCrowdAppDelegate.h */,
+				636E7D011337E0CD00F18A5F /* CamCrowdAppDelegate.m */,
+				636E7D031337E0CD00F18A5F /* MainWindow.xib */,
+				636E7D061337E0CD00F18A5F /* RootViewController.h */,
+				636E7D071337E0CD00F18A5F /* RootViewController.m */,
+				636E7D091337E0CD00F18A5F /* RootViewController.xib */,
+				636E7CF81337E0CD00F18A5F /* Supporting Files */,
+			);
+			path = CamCrowd;
+			sourceTree = "<group>";
+		};
+		636E7CF81337E0CD00F18A5F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				636E7CF91337E0CD00F18A5F /* CamCrowd-Info.plist */,
+				636E7CFA1337E0CD00F18A5F /* InfoPlist.strings */,
+				636E7CFD1337E0CD00F18A5F /* CamCrowd-Prefix.pch */,
+				636E7CFE1337E0CD00F18A5F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		636E7D171337E0CE00F18A5F /* CamCrowdTests */ = {
+			isa = PBXGroup;
+			children = (
+				636E7D1E1337E0CE00F18A5F /* CamCrowdTests.h */,
+				636E7D201337E0CE00F18A5F /* CamCrowdTests.m */,
+				636E7D181337E0CE00F18A5F /* Supporting Files */,
+			);
+			path = CamCrowdTests;
+			sourceTree = "<group>";
+		};
+		636E7D181337E0CE00F18A5F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				636E7D191337E0CE00F18A5F /* CamCrowdTests-Info.plist */,
+				636E7D1A1337E0CE00F18A5F /* InfoPlist.strings */,
+				636E7D1D1337E0CE00F18A5F /* CamCrowdTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		636E7CEC1337E0CD00F18A5F /* CamCrowd */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 636E7D241337E0CE00F18A5F /* Build configuration list for PBXNativeTarget "CamCrowd" */;
+			buildPhases = (
+				636E7CE91337E0CD00F18A5F /* Sources */,
+				636E7CEA1337E0CD00F18A5F /* Frameworks */,
+				636E7CEB1337E0CD00F18A5F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CamCrowd;
+			productName = CamCrowd;
+			productReference = 636E7CED1337E0CD00F18A5F /* CamCrowd.app */;
+			productType = "com.apple.product-type.application";
+		};
+		636E7D101337E0CE00F18A5F /* CamCrowdTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 636E7D271337E0CE00F18A5F /* Build configuration list for PBXNativeTarget "CamCrowdTests" */;
+			buildPhases = (
+				636E7D0C1337E0CE00F18A5F /* Sources */,
+				636E7D0D1337E0CE00F18A5F /* Frameworks */,
+				636E7D0E1337E0CE00F18A5F /* Resources */,
+				636E7D0F1337E0CE00F18A5F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				636E7D161337E0CE00F18A5F /* PBXTargetDependency */,
+			);
+			name = CamCrowdTests;
+			productName = CamCrowdTests;
+			productReference = 636E7D111337E0CE00F18A5F /* CamCrowdTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		636E7CE41337E0CD00F18A5F /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 636E7CE71337E0CD00F18A5F /* Build configuration list for PBXProject "CamCrowd" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 636E7CE21337E0CD00F18A5F;
+			productRefGroup = 636E7CEE1337E0CD00F18A5F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				636E7CEC1337E0CD00F18A5F /* CamCrowd */,
+				636E7D101337E0CE00F18A5F /* CamCrowdTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		636E7CEB1337E0CD00F18A5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				636E7CFC1337E0CD00F18A5F /* InfoPlist.strings in Resources */,
+				636E7D051337E0CD00F18A5F /* MainWindow.xib in Resources */,
+				636E7D0B1337E0CD00F18A5F /* RootViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		636E7D0E1337E0CE00F18A5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				636E7D1C1337E0CE00F18A5F /* InfoPlist.strings in Resources */,
+				636E7D1F1337E0CE00F18A5F /* CamCrowdTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		636E7D0F1337E0CE00F18A5F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		636E7CE91337E0CD00F18A5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				636E7CFF1337E0CD00F18A5F /* main.m in Sources */,
+				636E7D021337E0CD00F18A5F /* CamCrowdAppDelegate.m in Sources */,
+				636E7D081337E0CD00F18A5F /* RootViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		636E7D0C1337E0CE00F18A5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				636E7D211337E0CE00F18A5F /* CamCrowdTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		636E7D161337E0CE00F18A5F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 636E7CEC1337E0CD00F18A5F /* CamCrowd */;
+			targetProxy = 636E7D151337E0CE00F18A5F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		636E7CFA1337E0CD00F18A5F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				636E7CFB1337E0CD00F18A5F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		636E7D031337E0CD00F18A5F /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				636E7D041337E0CD00F18A5F /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		636E7D091337E0CD00F18A5F /* RootViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				636E7D0A1337E0CD00F18A5F /* en */,
+			);
+			name = RootViewController.xib;
+			sourceTree = "<group>";
+		};
+		636E7D1A1337E0CE00F18A5F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				636E7D1B1337E0CE00F18A5F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		636E7D221337E0CE00F18A5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		636E7D231337E0CE00F18A5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		636E7D251337E0CE00F18A5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CamCrowd/CamCrowd-Prefix.pch";
+				INFOPLIST_FILE = "CamCrowd/CamCrowd-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		636E7D261337E0CE00F18A5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CamCrowd/CamCrowd-Prefix.pch";
+				INFOPLIST_FILE = "CamCrowd/CamCrowd-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		636E7D281337E0CE00F18A5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CamCrowd.app/CamCrowd";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CamCrowdTests/CamCrowdTests-Prefix.pch";
+				INFOPLIST_FILE = "CamCrowdTests/CamCrowdTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		636E7D291337E0CE00F18A5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CamCrowd.app/CamCrowd";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CamCrowdTests/CamCrowdTests-Prefix.pch";
+				INFOPLIST_FILE = "CamCrowdTests/CamCrowdTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		636E7CE71337E0CD00F18A5F /* Build configuration list for PBXProject "CamCrowd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				636E7D221337E0CE00F18A5F /* Debug */,
+				636E7D231337E0CE00F18A5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		636E7D241337E0CE00F18A5F /* Build configuration list for PBXNativeTarget "CamCrowd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				636E7D251337E0CE00F18A5F /* Debug */,
+				636E7D261337E0CE00F18A5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		636E7D271337E0CE00F18A5F /* Build configuration list for PBXNativeTarget "CamCrowdTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				636E7D281337E0CE00F18A5F /* Debug */,
+				636E7D291337E0CE00F18A5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 636E7CE41337E0CD00F18A5F /* Project object */;
+}
