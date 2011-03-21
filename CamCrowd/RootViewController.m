@@ -31,6 +31,7 @@ static NSString *const kOSMServiceName = @"OpenStreetMap";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.title = @"CamCrowd";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(addDing:)];
     locationManager = [[CLLocationManager alloc] init];
