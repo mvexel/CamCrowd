@@ -7,10 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface RootViewController : UITableViewController {
+@class GTMOAuthAuthentication;
 
+@interface RootViewController : UIViewController<CLLocationManagerDelegate,UINavigationControllerDelegate> {
+    MKMapView *mapView;
+    CLLocationManager *locationManager;
+    GTMOAuthAuthentication *mAuth;
+    int mNetworkActivityCounter;
 }
+
+@property (nonatomic,retain) IBOutlet MKMapView *mapView;
+
+- (BOOL)isSignedIn;
+- (void)updateUI;
+- (void)signInToOSM;
+- (void)signOut;
+- (void)setAuthentication:(GTMOAuthAuthentication *)auth;
 
 
 @end

@@ -22,6 +22,16 @@
 		636E7D1C1337E0CE00F18A5F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 636E7D1A1337E0CE00F18A5F /* InfoPlist.strings */; };
 		636E7D1F1337E0CE00F18A5F /* CamCrowdTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 636E7D1E1337E0CE00F18A5F /* CamCrowdTests.h */; };
 		636E7D211337E0CE00F18A5F /* CamCrowdTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 636E7D201337E0CE00F18A5F /* CamCrowdTests.m */; };
+		636E7D2B1337E16800F18A5F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636E7D2A1337E16800F18A5F /* MapKit.framework */; };
+		636E7D2D1337E16E00F18A5F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636E7D2C1337E16E00F18A5F /* CoreLocation.framework */; };
+		63F1FF111337E89D008F06D0 /* WildcardGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F1FF101337E89D008F06D0 /* WildcardGestureRecognizer.m */; };
+		63F1FF271337EA69008F06D0 /* GTMOAuthViewControllerTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F1FF1F1337EA69008F06D0 /* GTMOAuthViewControllerTouch.m */; };
+		63F1FF281337EA69008F06D0 /* GTMOAuthAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F1FF211337EA69008F06D0 /* GTMOAuthAuthentication.m */; };
+		63F1FF291337EA69008F06D0 /* GTMOAuthSignIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F1FF231337EA69008F06D0 /* GTMOAuthSignIn.m */; };
+		63F1FF2A1337EA69008F06D0 /* GTMHTTPFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F1FF251337EA69008F06D0 /* GTMHTTPFetcher.m */; };
+		63F1FF2B1337EA69008F06D0 /* GTMOAuthViewTouch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F1FF261337EA69008F06D0 /* GTMOAuthViewTouch.xib */; };
+		63F1FF2D1337EA97008F06D0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F1FF2C1337EA97008F06D0 /* Security.framework */; };
+		63F1FF2F1337EA9D008F06D0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F1FF2E1337EA9D008F06D0 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,22 +49,37 @@
 		636E7CF11337E0CD00F18A5F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		636E7CF31337E0CD00F18A5F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		636E7CF51337E0CD00F18A5F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		636E7CF91337E0CD00F18A5F /* CamCrowd-Info.plist */ = {isa = PBXFileReference; path = "CamCrowd-Info.plist"; sourceTree = "<group>"; };
+		636E7CF91337E0CD00F18A5F /* CamCrowd-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CamCrowd-Info.plist"; sourceTree = "<group>"; };
 		636E7CFB1337E0CD00F18A5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		636E7CFD1337E0CD00F18A5F /* CamCrowd-Prefix.pch */ = {isa = PBXFileReference; path = "CamCrowd-Prefix.pch"; sourceTree = "<group>"; };
+		636E7CFD1337E0CD00F18A5F /* CamCrowd-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CamCrowd-Prefix.pch"; sourceTree = "<group>"; };
 		636E7CFE1337E0CD00F18A5F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		636E7D001337E0CD00F18A5F /* CamCrowdAppDelegate.h */ = {isa = PBXFileReference; path = CamCrowdAppDelegate.h; sourceTree = "<group>"; };
+		636E7D001337E0CD00F18A5F /* CamCrowdAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CamCrowdAppDelegate.h; sourceTree = "<group>"; };
 		636E7D011337E0CD00F18A5F /* CamCrowdAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CamCrowdAppDelegate.m; sourceTree = "<group>"; };
 		636E7D041337E0CD00F18A5F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		636E7D061337E0CD00F18A5F /* RootViewController.h */ = {isa = PBXFileReference; path = RootViewController.h; sourceTree = "<group>"; };
+		636E7D061337E0CD00F18A5F /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		636E7D071337E0CD00F18A5F /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		636E7D0A1337E0CD00F18A5F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
 		636E7D111337E0CE00F18A5F /* CamCrowdTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CamCrowdTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		636E7D191337E0CE00F18A5F /* CamCrowdTests-Info.plist */ = {isa = PBXFileReference; path = "CamCrowdTests-Info.plist"; sourceTree = "<group>"; };
+		636E7D191337E0CE00F18A5F /* CamCrowdTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CamCrowdTests-Info.plist"; sourceTree = "<group>"; };
 		636E7D1B1337E0CE00F18A5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		636E7D1D1337E0CE00F18A5F /* CamCrowdTests-Prefix.pch */ = {isa = PBXFileReference; path = "CamCrowdTests-Prefix.pch"; sourceTree = "<group>"; };
+		636E7D1D1337E0CE00F18A5F /* CamCrowdTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CamCrowdTests-Prefix.pch"; sourceTree = "<group>"; };
 		636E7D1E1337E0CE00F18A5F /* CamCrowdTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CamCrowdTests.h; sourceTree = "<group>"; };
 		636E7D201337E0CE00F18A5F /* CamCrowdTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CamCrowdTests.m; sourceTree = "<group>"; };
+		636E7D2A1337E16800F18A5F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		636E7D2C1337E16E00F18A5F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		63F1FF0F1337E89D008F06D0 /* WildcardGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WildcardGestureRecognizer.h; sourceTree = "<group>"; };
+		63F1FF101337E89D008F06D0 /* WildcardGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WildcardGestureRecognizer.m; sourceTree = "<group>"; };
+		63F1FF1E1337EA69008F06D0 /* GTMOAuthViewControllerTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMOAuthViewControllerTouch.h; path = "../gtm-oauth-read-only/Source/Touch/GTMOAuthViewControllerTouch.h"; sourceTree = "<group>"; };
+		63F1FF1F1337EA69008F06D0 /* GTMOAuthViewControllerTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMOAuthViewControllerTouch.m; path = "../gtm-oauth-read-only/Source/Touch/GTMOAuthViewControllerTouch.m"; sourceTree = "<group>"; };
+		63F1FF201337EA69008F06D0 /* GTMOAuthAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMOAuthAuthentication.h; path = "../gtm-oauth-read-only/Source/GTMOAuthAuthentication.h"; sourceTree = "<group>"; };
+		63F1FF211337EA69008F06D0 /* GTMOAuthAuthentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMOAuthAuthentication.m; path = "../gtm-oauth-read-only/Source/GTMOAuthAuthentication.m"; sourceTree = "<group>"; };
+		63F1FF221337EA69008F06D0 /* GTMOAuthSignIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMOAuthSignIn.h; path = "../gtm-oauth-read-only/Source/GTMOAuthSignIn.h"; sourceTree = "<group>"; };
+		63F1FF231337EA69008F06D0 /* GTMOAuthSignIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMOAuthSignIn.m; path = "../gtm-oauth-read-only/Source/GTMOAuthSignIn.m"; sourceTree = "<group>"; };
+		63F1FF241337EA69008F06D0 /* GTMHTTPFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMHTTPFetcher.h; path = "../gtm-oauth-read-only/HTTPFetcher/GTMHTTPFetcher.h"; sourceTree = "<group>"; };
+		63F1FF251337EA69008F06D0 /* GTMHTTPFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMHTTPFetcher.m; path = "../gtm-oauth-read-only/HTTPFetcher/GTMHTTPFetcher.m"; sourceTree = "<group>"; };
+		63F1FF261337EA69008F06D0 /* GTMOAuthViewTouch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GTMOAuthViewTouch.xib; path = "../gtm-oauth-read-only/Source/Touch/GTMOAuthViewTouch.xib"; sourceTree = "<group>"; };
+		63F1FF2C1337EA97008F06D0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		63F1FF2E1337EA9D008F06D0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +87,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63F1FF2F1337EA9D008F06D0 /* SystemConfiguration.framework in Frameworks */,
+				63F1FF2D1337EA97008F06D0 /* Security.framework in Frameworks */,
+				636E7D2D1337E16E00F18A5F /* CoreLocation.framework in Frameworks */,
+				636E7D2B1337E16800F18A5F /* MapKit.framework in Frameworks */,
 				636E7CF21337E0CD00F18A5F /* UIKit.framework in Frameworks */,
 				636E7CF41337E0CD00F18A5F /* Foundation.framework in Frameworks */,
 				636E7CF61337E0CD00F18A5F /* CoreGraphics.framework in Frameworks */,
@@ -84,6 +113,11 @@
 		636E7CE21337E0CD00F18A5F = {
 			isa = PBXGroup;
 			children = (
+				63F1FF2E1337EA9D008F06D0 /* SystemConfiguration.framework */,
+				63F1FF2C1337EA97008F06D0 /* Security.framework */,
+				63F1FF1D1337EA4F008F06D0 /* OAuth */,
+				636E7D2C1337E16E00F18A5F /* CoreLocation.framework */,
+				636E7D2A1337E16800F18A5F /* MapKit.framework */,
 				636E7CF71337E0CD00F18A5F /* CamCrowd */,
 				636E7D171337E0CE00F18A5F /* CamCrowdTests */,
 				636E7CF01337E0CD00F18A5F /* Frameworks */,
@@ -120,6 +154,8 @@
 				636E7D071337E0CD00F18A5F /* RootViewController.m */,
 				636E7D091337E0CD00F18A5F /* RootViewController.xib */,
 				636E7CF81337E0CD00F18A5F /* Supporting Files */,
+				63F1FF0F1337E89D008F06D0 /* WildcardGestureRecognizer.h */,
+				63F1FF101337E89D008F06D0 /* WildcardGestureRecognizer.m */,
 			);
 			path = CamCrowd;
 			sourceTree = "<group>";
@@ -153,6 +189,22 @@
 				636E7D1D1337E0CE00F18A5F /* CamCrowdTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		63F1FF1D1337EA4F008F06D0 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				63F1FF1E1337EA69008F06D0 /* GTMOAuthViewControllerTouch.h */,
+				63F1FF1F1337EA69008F06D0 /* GTMOAuthViewControllerTouch.m */,
+				63F1FF201337EA69008F06D0 /* GTMOAuthAuthentication.h */,
+				63F1FF211337EA69008F06D0 /* GTMOAuthAuthentication.m */,
+				63F1FF221337EA69008F06D0 /* GTMOAuthSignIn.h */,
+				63F1FF231337EA69008F06D0 /* GTMOAuthSignIn.m */,
+				63F1FF241337EA69008F06D0 /* GTMHTTPFetcher.h */,
+				63F1FF251337EA69008F06D0 /* GTMHTTPFetcher.m */,
+				63F1FF261337EA69008F06D0 /* GTMOAuthViewTouch.xib */,
+			);
+			name = OAuth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +277,7 @@
 				636E7CFC1337E0CD00F18A5F /* InfoPlist.strings in Resources */,
 				636E7D051337E0CD00F18A5F /* MainWindow.xib in Resources */,
 				636E7D0B1337E0CD00F18A5F /* RootViewController.xib in Resources */,
+				63F1FF2B1337EA69008F06D0 /* GTMOAuthViewTouch.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +316,11 @@
 				636E7CFF1337E0CD00F18A5F /* main.m in Sources */,
 				636E7D021337E0CD00F18A5F /* CamCrowdAppDelegate.m in Sources */,
 				636E7D081337E0CD00F18A5F /* RootViewController.m in Sources */,
+				63F1FF111337E89D008F06D0 /* WildcardGestureRecognizer.m in Sources */,
+				63F1FF271337EA69008F06D0 /* GTMOAuthViewControllerTouch.m in Sources */,
+				63F1FF281337EA69008F06D0 /* GTMOAuthAuthentication.m in Sources */,
+				63F1FF291337EA69008F06D0 /* GTMOAuthSignIn.m in Sources */,
+				63F1FF2A1337EA69008F06D0 /* GTMHTTPFetcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +501,7 @@
 				636E7D261337E0CE00F18A5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		636E7D271337E0CE00F18A5F /* Build configuration list for PBXNativeTarget "CamCrowdTests" */ = {
 			isa = XCConfigurationList;
@@ -451,6 +510,7 @@
 				636E7D291337E0CE00F18A5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
