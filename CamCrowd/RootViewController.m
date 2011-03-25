@@ -11,22 +11,37 @@
 #import "GTMOAuthAuthentication.h"
 #import "GTMOAuthViewControllerTouch.h"
 
-static NSString *const kOSMAppServiceName = @"OAuth Sample: OSM";
-static NSString *const kOSMServiceName = @"OpenStreetMap";
+static NSString * const kOSMAppServiceName = @"OSM";
 
 @interface RootViewController()
-- (void)viewController:(GTMOAuthViewControllerTouch *)viewController
-      finishedWithAuth:(GTMOAuthAuthentication *)auth
-                 error:(NSError *)error;
-- (void)incrementNetworkActivity:(NSNotification *)notify;
-- (void)decrementNetworkActivity:(NSNotification *)notify;
-- (void)signInNetworkLostOrFound:(NSNotification *)notify;
-- (GTMOAuthAuthentication *)authForOSM;
+- (void)signInToOSM;
+- (GTMOAuthAuthentication *)osmAuth;
+- (void)setAuthentication:(GTMOAuthAuthentication *)auth;
 @end
 
 @implementation RootViewController
 
 @synthesize mapView;
+
+- (void)awakeFromNib {
+
+    GTMOAuthAuthentication *auth = [self osmAuth];
+    if (auth) {
+        BOOL didAuth = [GTMOAuthViewControllerTouch authorizeFromKeychainForName:@"My App: Custom Service"
+                                                                  authentication:auth];
+        // if the auth object contains an access token, didAuth is now true
+        BOOL isSignedIn = [auth canAuthorize]; // returns NO if auth cannot authorize requests
+        NSLog(@"did auth: %i / is signed in: %i",didAuth,isSignedIn);
+        if(!didAuth) {
+            [self signInToOSM];
+        }
+    }
+    // retain the authentication object, which holds the auth tokens
+    //
+    // we can determine later if the auth object contains an access token
+    // by calling its -canAuthorize method
+    [self setAuthentication:auth];
+}
 
 - (void)viewDidLoad
 {
@@ -45,16 +60,6 @@ static NSString *const kOSMServiceName = @"OpenStreetMap";
     [mapView addGestureRecognizer:tapInterceptor];
     
     [self.navigationController setDelegate:self];
-    
-    if (![self isSignedIn]) {
-        // sign in
-        [self signInToOSM];
-    } else {
-        // sign out
-        [self signOut];
-    }
-    [self updateUI];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -110,6 +115,7 @@ static NSString *const kOSMServiceName = @"OpenStreetMap";
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
     [mapView setRegion:MKCoordinateRegionMakeWithDistance(newLocation.coordinate, newLocation.horizontalAccuracy * 2, newLocation.horizontalAccuracy * 2)];
+    [locationManager stopUpdatingLocation];
 }
 
 #pragma mark -
@@ -120,25 +126,42 @@ static NSString *const kOSMServiceName = @"OpenStreetMap";
 
 #pragma mark -
 
-- (BOOL)isSignedIn {
-    BOOL isSignedIn = [mAuth canAuthorize];
-    return isSignedIn;
-}
-
-- (void)signOut {    
-    [GTMOAuthViewControllerTouch removeParamsFromKeychainForName:kOSMAppServiceName];
-    [self setAuthentication:nil];
+- (void)signInToOSM {
     
-    [self updateUI];
+    NSURL *requestURL = [NSURL URLWithString:@"http://www.openstreetmap.org/oauth/request_token"];
+    NSURL *accessURL = [NSURL URLWithString:@"http://www.openstreetmap.org/oauth/access_token"];
+    NSURL *authorizeURL = [NSURL URLWithString:@"http://www.openstreetmap.org/oauth/authorize"];
+    NSString *scope = @"http://example.com/scope";
+    
+    GTMOAuthAuthentication *auth = [self osmAuth];
+    
+    // set the callback URL to which the site should redirect, and for which
+    // the OAuth controller should look to determine when sign-in has
+    // finished or been canceled
+    //
+    // This URL does not need to be for an actual web page
+    [auth setCallback:@"http://www.example.com/OAuthCallback"];
+    
+    // Display the autentication view
+    GTMOAuthViewControllerTouch *viewController;
+    viewController = [[[GTMOAuthViewControllerTouch alloc] initWithScope:scope
+                                                                language:nil
+                                                         requestTokenURL:requestURL
+                                                       authorizeTokenURL:authorizeURL
+                                                          accessTokenURL:accessURL
+                                                          authentication:auth
+                                                          appServiceName:@"My App: Custom Service"
+                                                                delegate:self
+                                                        finishedSelector:@selector(viewController:finishedWithAuth:error:)] autorelease];
+    
+    [[self navigationController] pushViewController:viewController
+                                           animated:YES];
 }
 
-- (GTMOAuthAuthentication *)authForOSM {
+
+- (GTMOAuthAuthentication *)osmAuth {
     NSString *myConsumerKey = @"BYgJMXj1RImF3hfdXjr0w";
     NSString *myConsumerSecret = @"A8Rm7bkIo13lXO5EaUbQ6oAWziCKcPJGF35s79wclPw";
-    
-    if ([myConsumerKey length] == 0 || [myConsumerSecret length] == 0) {
-        return nil;
-    }
     
     GTMOAuthAuthentication *auth;
     auth = [[[GTMOAuthAuthentication alloc] initWithSignatureMethod:kGTMOAuthSignatureMethodHMAC_SHA1
@@ -147,140 +170,26 @@ static NSString *const kOSMServiceName = @"OpenStreetMap";
     
     // setting the service name lets us inspect the auth object later to know
     // what service it is for
-    [auth setServiceProvider:kOSMServiceName];
+    auth.serviceProvider = @"OpenStreetMap";
     
     return auth;
 }
-
-- (void)signInToOSM {
-    
-    [self signOut];
-    
-    NSURL *requestURL = [NSURL URLWithString:@"http://www.openstreetmap.org/oauth/request_token"];
-    NSURL *accessURL = [NSURL URLWithString:@"http://www.openstreetmap.org/oauth/access_token"];
-    NSURL *authorizeURL = [NSURL URLWithString:@"http://www.openstreetmap.org/oauth/authorize"];
-    NSString *scope = @"http://api.openstreempap.org/";
-    
-    GTMOAuthAuthentication *auth = [self authForOSM];
-    if (auth == nil) {
-        // perhaps display something friendlier in the UI?
-        NSAssert(NO, @"A valid consumer key and consumer secret are required for signing in to OSM");
-    }
-    
-    // set the callback URL to which the site should redirect, and for which
-    // the OAuth controller should look to determine when sign-in has
-    // finished or been canceled
-    //
-    // This URL does not need to be for an actual web page; it will not be
-    // loaded
-    [auth setCallback:@"http://www.example.com/OAuthCallback"];
-    
-    NSString *keychainAppServiceName = nil;
-    keychainAppServiceName = kOSMServiceName;
-    
-    // Display the autentication view.
-    GTMOAuthViewControllerTouch *viewController;
-    viewController = [[[GTMOAuthViewControllerTouch alloc] initWithScope:scope
-                                                                language:nil
-                                                         requestTokenURL:requestURL
-                                                       authorizeTokenURL:authorizeURL
-                                                          accessTokenURL:accessURL
-                                                          authentication:auth
-                                                          appServiceName:keychainAppServiceName
-                                                                delegate:self
-                                                        finishedSelector:@selector(viewController:finishedWithAuth:error:)] autorelease];
-    
-    // We can set a URL for deleting the cookies after sign-in so the next time
-    // the user signs in, the browser does not assume the user is already signed
-    // in
-    [viewController setBrowserCookiesURL:[NSURL URLWithString:@"http://api.openstreetmap.org/"]];
-    
-    // You can set the title of the navigationItem of the controller here, if you want.
-    //    navigationController = [[UINavigationController alloc] initWithRootViewController:self];
-    //    [navigationController pushViewController:viewController animated:YES];
-    [[self navigationController] pushViewController:viewController animated:YES];
-    //    [self pushViewController:viewController animated:YES];
-}
-
-- (void)setAuthentication:(GTMOAuthAuthentication *)auth {
-    [mAuth autorelease];
-    mAuth = [auth retain];    
-}
-
-- (void)updateUI {
-    // update the text showing the signed-in state and the button title
-    // A real program would use NSLocalizedString() for strings shown to the user.
-    if ([self isSignedIn]) {
-    } else {
-        // signed out
-    }
-}
-
-
-#pragma mark -
 
 - (void)viewController:(GTMOAuthViewControllerTouch *)viewController
       finishedWithAuth:(GTMOAuthAuthentication *)auth
                  error:(NSError *)error {
     if (error != nil) {
-        // Authentication failed (perhaps the user denied access, or closed the
-        // window before granting access)
-        NSLog(@"Authentication error: %@", error);
-        NSData *responseData = [[error userInfo] objectForKey:@"data"]; // kGTMHTTPFetcherStatusDataKey
-        if ([responseData length] > 0) {
-            // show the body of the server's authentication failure response
-            NSString *str = [[[NSString alloc] initWithData:responseData
-                                                   encoding:NSUTF8StringEncoding] autorelease];
-            NSLog(@"%@", str);
-        }
-        
-        [self setAuthentication:nil];
+        // Authentication failed
+        NSLog(@"Authentication failed");
     } else {
-        // Authentication succeeded
-        //
-        // At this point, we either use the authentication object to explicitly
-        // authorize requests, like
-        //
-        //   [auth authorizeRequest:myNSURLMutableRequest]
-        //
-        // or store the authentication object into a GTM service object like
-        //
-        //   [[self contactService] setAuthorizer:auth];
-        
-        // save the authentication object
+        NSLog(@"Authentication succeeded");
         [self setAuthentication:auth];
-        
-    }
-    
-    [self updateUI];
-}
-
-#pragma mark -
-
-- (void)incrementNetworkActivity:(NSNotification *)notify {
-    ++mNetworkActivityCounter;
-    if (1 == mNetworkActivityCounter) {
-        UIApplication *app = [UIApplication sharedApplication];
-        [app setNetworkActivityIndicatorVisible:YES];
     }
 }
 
-- (void)decrementNetworkActivity:(NSNotification *)notify {
-    --mNetworkActivityCounter;
-    if (0 == mNetworkActivityCounter) {
-        UIApplication *app = [UIApplication sharedApplication];
-        [app setNetworkActivityIndicatorVisible:NO];
-    }
-}
-
-- (void)signInNetworkLostOrFound:(NSNotification *)notify {
-    if ([[notify name] isEqual:kGTMOAuthNetworkLost]) {
-        // network connection was lost; alert the user, or dismiss
-        // the sign-in view with
-        //   [[[notify object] delegate] cancelSigningIn];
-    } else {
-        // network connection was found again
-    }
+- (void)setAuthentication:(GTMOAuthAuthentication *)auth {
+    [mAuth autorelease];
+    mAuth = [auth retain];
 }
 
 @end

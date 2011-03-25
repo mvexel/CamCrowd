@@ -110,9 +110,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		636D17631337FBC800E45D63 /* OSM */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = OSM;
+			sourceTree = "<group>";
+		};
 		636E7CE21337E0CD00F18A5F = {
 			isa = PBXGroup;
 			children = (
+				636D17631337FBC800E45D63 /* OSM */,
 				63F1FF2E1337EA9D008F06D0 /* SystemConfiguration.framework */,
 				63F1FF2C1337EA97008F06D0 /* Security.framework */,
 				63F1FF1D1337EA4F008F06D0 /* OAuth */,
