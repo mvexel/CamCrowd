@@ -11,10 +11,13 @@
 
 @class GTMOAuthAuthentication;
 
-@interface RootViewController : UIViewController<CLLocationManagerDelegate,UINavigationControllerDelegate> {
+@interface RootViewController : UIViewController<CLLocationManagerDelegate,UINavigationControllerDelegate,NSXMLParserDelegate,UIActionSheetDelegate> {
     MKMapView *mapView;
     CLLocationManager *locationManager;
     GTMOAuthAuthentication *mAuth;
+    NSMutableData *receivedData;
+    NSXMLParser *xmlParser;
+    NSString *userName;
 }
 
 @property (nonatomic,retain) IBOutlet MKMapView *mapView;

@@ -17,6 +17,7 @@ static NSString * const kOSMAppServiceName = @"OSM";
 - (void)signInToOSM;
 - (GTMOAuthAuthentication *)osmAuth;
 - (void)setAuthentication:(GTMOAuthAuthentication *)auth;
+- (void)getUserInfo;
 @end
 
 @implementation RootViewController
@@ -32,15 +33,16 @@ static NSString * const kOSMAppServiceName = @"OSM";
         // if the auth object contains an access token, didAuth is now true
         BOOL isSignedIn = [auth canAuthorize]; // returns NO if auth cannot authorize requests
         NSLog(@"did auth: %i / is signed in: %i",didAuth,isSignedIn);
+        
         if(!didAuth) {
             [self signInToOSM];
         }
+        else
+        {
+            [self setAuthentication:auth];
+            [self getUserInfo];
+        }
     }
-    // retain the authentication object, which holds the auth tokens
-    //
-    // we can determine later if the auth object contains an access token
-    // by calling its -canAuthorize method
-    [self setAuthentication:auth];
 }
 
 - (void)viewDidLoad
@@ -184,6 +186,7 @@ static NSString * const kOSMAppServiceName = @"OSM";
     } else {
         NSLog(@"Authentication succeeded");
         [self setAuthentication:auth];
+        [self getUserInfo];
     }
 }
 
@@ -191,5 +194,83 @@ static NSString * const kOSMAppServiceName = @"OSM";
     [mAuth autorelease];
     mAuth = [auth retain];
 }
+
+#pragma mark -
+
+- (void)getUserInfo {
+    NSURL *userInfoUrl = [NSURL URLWithString:@"http://api.openstreetmap.org/api/0.6/user/details"];
+    NSMutableURLRequest * req = [NSMutableURLRequest requestWithURL:userInfoUrl];
+    [mAuth authorizeRequest:req];
+    NSURLConnection *conn = [NSURLConnection connectionWithRequest:req delegate:self];
+    if (conn) {
+        receivedData = [[NSMutableData data] retain];
+    } else {
+        NSLog(@"user details could not be retrieved: connection failed");
+    }
+}
+
+#pragma mark -
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    [receivedData setLength:0];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    [receivedData appendData:data];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    [receivedData release];
+    
+    NSLog(@"Connection failed! Error - %@ %@",
+          [error localizedDescription],
+          [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    NSLog(@"Succeeded! Received %d bytes of data",[receivedData length]);
+    NSLog(@"%@",[[NSString alloc] initWithData:receivedData encoding:NSASCIIStringEncoding]);
+    xmlParser = [[NSXMLParser alloc] initWithData:receivedData];
+    [xmlParser setDelegate:self];
+    [xmlParser parse];
+    [receivedData release];
+}
+
+#pragma mark -
+
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
+    
+    if ( [elementName isEqualToString:@"user"]) {
+        NSString *thisUser = [attributeDict valueForKey:@"display_name"];
+        if (thisUser) {
+            userName = thisUser;
+            NSLog(@"userName: %@",userName);
+            UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"you are signed in as %@",userName] delegate:self cancelButtonTitle:@"That's me!" destructiveButtonTitle:@"Sign out" otherButtonTitles:nil];
+            [as showInView:self.view];
+        }
+    }
+}
+
+#pragma mark -
+
+- (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex {
+    NSLog(@"dismissed with index %i",buttonIndex);
+    switch (buttonIndex) {
+        case 0:
+            // sign out
+            [GTMOAuthViewControllerTouch removeParamsFromKeychainForName:kOSMAppServiceName];
+            [self signInToOSM];
+            break;
+        case 1:
+            // OK, do nothing
+        default:
+            break;
+    }
+}
+
 
 @end
