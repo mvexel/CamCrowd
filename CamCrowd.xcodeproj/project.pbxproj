@@ -24,6 +24,8 @@
 		636E7D211337E0CE00F18A5F /* CamCrowdTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 636E7D201337E0CE00F18A5F /* CamCrowdTests.m */; };
 		636E7D2B1337E16800F18A5F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636E7D2A1337E16800F18A5F /* MapKit.framework */; };
 		636E7D2D1337E16E00F18A5F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636E7D2C1337E16E00F18A5F /* CoreLocation.framework */; };
+		63754097133D68B600EE8F42 /* AddCameraFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63754095133D68B600EE8F42 /* AddCameraFirstViewController.m */; };
+		63754098133D68B600EE8F42 /* AddCameraFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63754096133D68B600EE8F42 /* AddCameraFirstViewController.xib */; };
 		63F1FF111337E89D008F06D0 /* WildcardGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F1FF101337E89D008F06D0 /* WildcardGestureRecognizer.m */; };
 		63F1FF271337EA69008F06D0 /* GTMOAuthViewControllerTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F1FF1F1337EA69008F06D0 /* GTMOAuthViewControllerTouch.m */; };
 		63F1FF281337EA69008F06D0 /* GTMOAuthAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F1FF211337EA69008F06D0 /* GTMOAuthAuthentication.m */; };
@@ -67,6 +69,9 @@
 		636E7D201337E0CE00F18A5F /* CamCrowdTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CamCrowdTests.m; sourceTree = "<group>"; };
 		636E7D2A1337E16800F18A5F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		636E7D2C1337E16E00F18A5F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		63754094133D68B600EE8F42 /* AddCameraFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCameraFirstViewController.h; sourceTree = "<group>"; };
+		63754095133D68B600EE8F42 /* AddCameraFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCameraFirstViewController.m; sourceTree = "<group>"; };
+		63754096133D68B600EE8F42 /* AddCameraFirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCameraFirstViewController.xib; sourceTree = "<group>"; };
 		63F1FF0F1337E89D008F06D0 /* WildcardGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WildcardGestureRecognizer.h; sourceTree = "<group>"; };
 		63F1FF101337E89D008F06D0 /* WildcardGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WildcardGestureRecognizer.m; sourceTree = "<group>"; };
 		63F1FF1E1337EA69008F06D0 /* GTMOAuthViewControllerTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMOAuthViewControllerTouch.h; path = "../gtm-oauth-read-only/Source/Touch/GTMOAuthViewControllerTouch.h"; sourceTree = "<group>"; };
@@ -161,6 +166,9 @@
 				636E7D061337E0CD00F18A5F /* RootViewController.h */,
 				636E7D071337E0CD00F18A5F /* RootViewController.m */,
 				636E7D091337E0CD00F18A5F /* RootViewController.xib */,
+				63754094133D68B600EE8F42 /* AddCameraFirstViewController.h */,
+				63754095133D68B600EE8F42 /* AddCameraFirstViewController.m */,
+				63754096133D68B600EE8F42 /* AddCameraFirstViewController.xib */,
 				636E7CF81337E0CD00F18A5F /* Supporting Files */,
 				63F1FF0F1337E89D008F06D0 /* WildcardGestureRecognizer.h */,
 				63F1FF101337E89D008F06D0 /* WildcardGestureRecognizer.m */,
@@ -286,6 +294,7 @@
 				636E7D051337E0CD00F18A5F /* MainWindow.xib in Resources */,
 				636E7D0B1337E0CD00F18A5F /* RootViewController.xib in Resources */,
 				63F1FF2B1337EA69008F06D0 /* GTMOAuthViewTouch.xib in Resources */,
+				63754098133D68B600EE8F42 /* AddCameraFirstViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +338,7 @@
 				63F1FF281337EA69008F06D0 /* GTMOAuthAuthentication.m in Sources */,
 				63F1FF291337EA69008F06D0 /* GTMOAuthSignIn.m in Sources */,
 				63F1FF2A1337EA69008F06D0 /* GTMHTTPFetcher.m in Sources */,
+				63754097133D68B600EE8F42 /* AddCameraFirstViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

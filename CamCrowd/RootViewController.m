@@ -10,6 +10,7 @@
 #import "WildcardGestureRecognizer.h"
 #import "GTMOAuthAuthentication.h"
 #import "GTMOAuthViewControllerTouch.h"
+#import "AddCameraFirstViewController.h"
 
 static NSString * const kOSMAppServiceName = @"OSM";
 
@@ -50,7 +51,7 @@ static NSString * const kOSMAppServiceName = @"OSM";
     [super viewDidLoad];
     
     self.title = @"CamCrowd";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(addDing:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addCamera:)];
     locationManager = [[CLLocationManager alloc] init];
     [locationManager setDelegate:self];
     [locationManager startUpdatingLocation];
@@ -122,8 +123,10 @@ static NSString * const kOSMAppServiceName = @"OSM";
 
 #pragma mark -
 
--(void)addDing:(id)sender {
-    NSLog(@"adding ding");
+-(void)addCamera:(id)sender {
+    NSLog(@"adding camera");
+    AddCameraFirstViewController *vc = [[AddCameraFirstViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark -
